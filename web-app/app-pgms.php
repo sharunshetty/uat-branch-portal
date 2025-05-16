@@ -12,7 +12,7 @@ require_once(dirname(__FILE__) . '/../app-core/app_auto_load.php');
 require_once(dirname(__FILE__) . '/check-login.php');
 
 /** Current Page */
-$page_pgm_code = "APPPGMS";
+$page_pgm_code = "APPPG";
 
 $page_title = "Programs List";
 $page_link = "./app-pgms";
