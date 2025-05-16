@@ -1,0 +1,92 @@
+;;; 
+Export: Release 11.2.0.2.0 - Production on Wed Oct 30 10:24:30 2024
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+;;; 
+Connected to: Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+Starting "UAT_SBPORTAL"."SYS_EXPORT_SCHEMA_01":  UAT_SBPORTAL/******** directory=DATA_PUMP_DIR dumpfile=uat_sbportal_db_20241030.dmp logfile=uat_sbportal_db_20241030.log 
+Estimate in progress using BLOCKS method...
+Processing object type SCHEMA_EXPORT/TABLE/TABLE_DATA
+Total estimation using BLOCKS method: 60.56 MB
+Processing object type SCHEMA_EXPORT/USER
+Processing object type SCHEMA_EXPORT/SYSTEM_GRANT
+Processing object type SCHEMA_EXPORT/ROLE_GRANT
+Processing object type SCHEMA_EXPORT/DEFAULT_ROLE
+Processing object type SCHEMA_EXPORT/PRE_SCHEMA/PROCACT_SCHEMA
+Processing object type SCHEMA_EXPORT/SEQUENCE/SEQUENCE
+Processing object type SCHEMA_EXPORT/TABLE/TABLE
+Processing object type SCHEMA_EXPORT/TABLE/INDEX/INDEX
+Processing object type SCHEMA_EXPORT/TABLE/CONSTRAINT/CONSTRAINT
+Processing object type SCHEMA_EXPORT/TABLE/INDEX/STATISTICS/INDEX_STATISTICS
+Processing object type SCHEMA_EXPORT/TABLE/COMMENT
+Processing object type SCHEMA_EXPORT/TABLE/STATISTICS/TABLE_STATISTICS
+. . exported "UAT_SBPORTAL"."ASSREQ_CUST_DATA"           50.44 MB     191 rows
+. . exported "UAT_SBPORTAL"."ASSREQ_BRANCH_DETAILS"      3.624 MB      14 rows
+. . exported "UAT_SBPORTAL"."ASSREQ_EKYC_DOCS"           534.9 KB     114 rows
+. . exported "UAT_SBPORTAL"."SBREQ_EKYC_DOCS"            255.7 KB      41 rows
+. . exported "UAT_SBPORTAL"."LOG_EXTAPI_SENT"            19.32 KB       6 rows
+. . exported "UAT_SBPORTAL"."SBREQ_PINCODE_DATA"         117.3 KB    2841 rows
+. . exported "UAT_SBPORTAL"."APP_FORGOTPASS_LOGS"        10.53 KB       7 rows
+. . exported "UAT_SBPORTAL"."APP_LOGIN_LOGS"             41.13 KB     304 rows
+. . exported "UAT_SBPORTAL"."LOCATION"                   105.0 KB    1215 rows
+. . exported "UAT_SBPORTAL"."LOG_OTPREQ"                 44.00 KB     157 rows
+. . exported "UAT_SBPORTAL"."MBRN"                       94.24 KB     189 rows
+. . exported "UAT_SBPORTAL"."VKYC_MEETING_SMSLOGS"       8.679 KB       5 rows
+. . exported "UAT_SBPORTAL"."VKYC_MEETING_UPLOADS"       14.53 KB      18 rows
+. . exported "UAT_SBPORTAL"."VKYC_REQUESTS_STAGE"        15.81 KB      64 rows
+. . exported "UAT_SBPORTAL"."APP_DATA_SETTINGS"          10.09 KB      35 rows
+. . exported "UAT_SBPORTAL"."APP_DATA_VKYC_SETTINGS"     10.08 KB      33 rows
+. . exported "UAT_SBPORTAL"."APP_LOGIN_ATTEMPTS"         7.898 KB      21 rows
+. . exported "UAT_SBPORTAL"."ASSAPP_DATA_SETTINGS"       9.992 KB      32 rows
+. . exported "UAT_SBPORTAL"."ASSREQ_ACCOUNTDATA"         24.62 KB      23 rows
+. . exported "UAT_SBPORTAL"."ASSREQ_APP_PROGRAMS"         11.5 KB       9 rows
+. . exported "UAT_SBPORTAL"."ASSREQ_MASTER"              35.64 KB      26 rows
+. . exported "UAT_SBPORTAL"."ASSREQ_QUALIFICATION"       6.929 KB       7 rows
+. . exported "UAT_SBPORTAL"."ASSREQ_USER_ACCOUNTS"       15.27 KB      23 rows
+. . exported "UAT_SBPORTAL"."ASSREQ_USER_ACCOUNTS_DTL"   14.69 KB      42 rows
+. . exported "UAT_SBPORTAL"."ASSREQ_USER_ROLES"          9.617 KB       3 rows
+. . exported "UAT_SBPORTAL"."ASSREQ_USER_ROLES_DTL"      6.117 KB      14 rows
+. . exported "UAT_SBPORTAL"."DESIGNATIONS"               9.820 KB      20 rows
+. . exported "UAT_SBPORTAL"."INCOMESLAB"                 5.523 KB       4 rows
+. . exported "UAT_SBPORTAL"."LOGS_SBREQ_ACUPGRADE"       10.57 KB       6 rows
+. . exported "UAT_SBPORTAL"."OCCUPATIONS"                9.812 KB      16 rows
+. . exported "UAT_SBPORTAL"."RELATION"                   8.742 KB       1 rows
+. . exported "UAT_SBPORTAL"."SBREQ_ACCOUNTDATA"          21.30 KB      13 rows
+. . exported "UAT_SBPORTAL"."SBREQ_BANNER_UPLOADS"       7.867 KB       6 rows
+. . exported "UAT_SBPORTAL"."SBREQ_MASTER"               24.57 KB      18 rows
+. . exported "UAT_SBPORTAL"."SBREQ_PRODUCT_CODE"         8.671 KB       1 rows
+. . exported "UAT_SBPORTAL"."STATE"                      9.054 KB       1 rows
+. . exported "UAT_SBPORTAL"."SUMMARY_REP_DTL"            9.226 KB       1 rows
+. . exported "UAT_SBPORTAL"."USER_ACCOUNTS"              14.35 KB       8 rows
+. . exported "UAT_SBPORTAL"."USER_ROLES"                 9.843 KB       8 rows
+. . exported "UAT_SBPORTAL"."USER_ROLES_DTL"             5.898 KB       3 rows
+. . exported "UAT_SBPORTAL"."VKYC_MAST_TIMESLOTS"        9.710 KB      32 rows
+. . exported "UAT_SBPORTAL"."VKYC_REQUESTS"              25.42 KB      36 rows
+. . exported "UAT_SBPORTAL"."VKYC_REQUESTS_CDATA"        22.92 KB      19 rows
+. . exported "UAT_SBPORTAL"."VKYC_REQUESTS_DOCS"         11.66 KB       1 rows
+. . exported "UAT_SBPORTAL"."VKYC_SMS_TEMPLATES"         8.679 KB       2 rows
+. . exported "UAT_SBPORTAL"."LANGUAGES"                      0 KB       0 rows
+. . exported "UAT_SBPORTAL"."QUALIFICATION"                  0 KB       0 rows
+. . exported "UAT_SBPORTAL"."RELIGION"                       0 KB       0 rows
+. . exported "UAT_SBPORTAL"."SBREQ_ACCOUNT_TYPE"             0 KB       0 rows
+. . exported "UAT_SBPORTAL"."SBREQ_DLDOCS"                   0 KB       0 rows
+. . exported "UAT_SBPORTAL"."SBTYPE_OF_ACCOMODATION"         0 KB       0 rows
+. . exported "UAT_SBPORTAL"."SMS_TEMPLATES"                  0 KB       0 rows
+. . exported "UAT_SBPORTAL"."TITLES"                         0 KB       0 rows
+. . exported "UAT_SBPORTAL"."USER_ACCOUNTS_REGIONS"          0 KB       0 rows
+. . exported "UAT_SBPORTAL"."USER_ACCOUNTS_TRANSFER"         0 KB       0 rows
+. . exported "UAT_SBPORTAL"."VKYC_FACEMATCH_RESULTS"         0 KB       0 rows
+. . exported "UAT_SBPORTAL"."VKYC_MAST_CHANNELS"             0 KB       0 rows
+. . exported "UAT_SBPORTAL"."VKYC_MAST_DOCTYPES"             0 KB       0 rows
+. . exported "UAT_SBPORTAL"."VKYC_MAST_FILEFORMATS"          0 KB       0 rows
+. . exported "UAT_SBPORTAL"."VKYC_MAST_FILEFORMATS_DTL"      0 KB       0 rows
+. . exported "UAT_SBPORTAL"."VKYC_MAST_SERVICES"             0 KB       0 rows
+. . exported "UAT_SBPORTAL"."VKYC_MAST_WORKFLOW"             0 KB       0 rows
+. . exported "UAT_SBPORTAL"."VKYC_MEETING_CUSTLOGS"          0 KB       0 rows
+. . exported "UAT_SBPORTAL"."VKYC_MEETING_MAPVERIFY"         0 KB       0 rows
+. . exported "UAT_SBPORTAL"."VKYC_MEETING_VERIFY"            0 KB       0 rows
+Master table "UAT_SBPORTAL"."SYS_EXPORT_SCHEMA_01" successfully loaded/unloaded
+******************************************************************************
+Dump file set for UAT_SBPORTAL.SYS_EXPORT_SCHEMA_01 is:
+  C:\ORACLEXE\APP\ORACLE\ADMIN\XE\DPDUMP\UAT_SBPORTAL_DB_20241030.DMP
+Job "UAT_SBPORTAL"."SYS_EXPORT_SCHEMA_01" successfully completed at 10:24:58

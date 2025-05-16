@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+/**
+ * @copyright   : (c) 2020 Copyright by LCode Technologies
+ * @author      : Shivananda Shenoy (Madhukar)
+ **/
+
+/* Login CSS */
+
+#particles-js canvas {
+    position: absolute !important;
+    width: 100%;
+    height: auto;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.login-page,
+.register-page {
+    min-height: 400px;
+    /* background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%); */
+    /* background-image: linear-gradient(135deg, #fffed2 0%, #b5e6ff 100%); */
+    /* background-image: linear-gradient(135deg, #f6d8da 0%, #0057AB 100%); */
+    /* background-image: linear-gradient(135deg, #e1162a 0%, #e1162a 100%); */
+    min-height: 100vh;
+}
+
+.login-box,
+.register-box {
+    width: 100%;
+    max-width: 380px;
+}
+
+.login-box .card,
+.login-box .card .card-body {
+    border-radius: 20px;
+    box-shadow: 0 0 8px 0 rgba(0,0,0,.2);
+}
+
+.login-card-body .input-group .input-group-text,
+.register-card-body .input-group .input-group-text {
+    padding: 0 0.5rem;
+    border-color: #607d8b;
+    color: #222222;
+}
+
+.login-card-body .input-group .form-control:focus~.input-group-append .input-group-text,
+.register-card-body .input-group .form-control:focus~.input-group-append .input-group-text {
+    border: 1.5px solid #3F51B5;
+    border-left: 0;
+}
+
+.login-img-d1 {
+    width: 100%;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+}
+/* 
+.login-btn {
+    box-shadow: 0px 1px 0px 0px #0054A6;
+    background: linear-gradient(to bottom, #437bbe 5%, #0054A6 100%);
+    background-color: #0054A6;
+    border-radius: 6px;
+    border: 1px solid #0054A6;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 5px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #000000;
+    font-size: 0.9rem;
+} */
+
+.login-btn{
+    box-shadow: inset 0px 1px 0px 0px #ea2f2f;
+    background: linear-gradient(to bottom, #ea2f2f 5%, #ea2f2f 100%);
+    background-color: #ea2f2f;
+    border-radius: 3px;
+    border: 1px solid #ea2f2f;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 0.85rem;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ea2f2f;
+
+}
+
+.login-btn:active {
+    position: relative;
+    top: 1px;
+}
+
+@media (max-width: 767px) {
+
+    .login-page,
+    .register-page {
+        justify-content: unset;
+    }
+
+    .login-box {
+        margin-top: 30px;
+    }
+
+}
+
+/** Error **/
+
+label.error {
+    display: block;
+    color: #f44336;
+    font-size: 0.7rem;
+    margin: 0;
+}

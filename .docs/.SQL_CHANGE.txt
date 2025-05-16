@@ -1,0 +1,1196 @@
+CREATE TABLE APP_
+DATA_SETTINGS (
+	OPTION_NAME VARCHAR2(80) NOT NULL,
+	OPTION_VALUE VARCHAR2(255) NULL,
+	OPTION_STATUS CHAR(1) NULL,
+	CR_BY VARCHAR2(12) NULL,
+	CR_ON DATE NULL,
+	MO_BY VARCHAR2(12) NULL,
+	MO_ON DATE NULL,
+	AU_BY VARCHAR2(12) NULL,
+	AU_ON DATE NULL,
+	TBA_KEY VARCHAR2(25) NULL,
+	PRIMARY KEY (OPTION_NAME));
+	
+
+CREATE TABLE APP_LOGIN_ATTEMPTS (
+	TRY_ID NUMBER(15) NOT NULL,
+	TRY_USER_ID VARCHAR2(30) NOT NULL,
+	TRY_IP_ADD VARCHAR2(255) NULL,
+	TRY_TIME VARCHAR2(100) NULL,
+	CR_BY VARCHAR2(12) NULL,
+	CR_ON DATE NULL,
+	PRIMARY KEY (TRY_ID, TRY_USER_ID)
+);
+
+
+/**  USR_ACTIVE_FLAG COLUMN ADDED IN 12 NOV 2024**/
+
+CREATE TABLE APP_LOGIN_LOGS (
+	LOGIN_REQ_ID NUMBER(15) NOT NULL,
+	LOGIN_USER VARCHAR2(20) NULL,
+	LOGIN_ROLE VARCHAR2(12) NULL,
+	LOGIN_OTP_STATUS CHAR(1) NULL,
+	LOGIN_TIME DATE NULL,
+	LOGOUT_TIME DATE NULL,
+	LOGIN_IP VARCHAR2(255) NULL,
+	LOGIN_BROWSER VARCHAR2(60) NULL,
+	LOGIN_BROWSER_VER VARCHAR2(60) NULL,
+	CR_BY VARCHAR2(12) NULL,
+	CR_ON DATE NULL,
+	MO_BY VARCHAR2(12) NULL,
+	MO_ON DATE NULL,
+	OTP_CODE VARCHAR2(12) NULL,
+	SMS_SENT_LOG VARCHAR2(500) NULL,
+  USR_ACTIVE_FLAG CHAR(1) NULL,
+	PRIMARY KEY (LOGIN_REQ_ID));
+
+
+	
+CREATE TABLE APP_PROGRAMS (
+	PGM_CODE VARCHAR2(20) NOT NULL,
+	PGM_NAME VARCHAR2(120) NULL,
+	PGM_DESC VARCHAR2(255) NULL,
+	PGM_FILE_PATH VARCHAR2(60) NULL,
+	PGM_MDI_ICON VARCHAR2(60) NULL,
+	PGM_CATEGORY VARCHAR2(12) NULL,
+	PGM_STATUS CHAR(1) NULL,
+	CR_BY VARCHAR2(12) NULL,
+	CR_ON DATE NULL,
+	MO_BY VARCHAR2(12) NULL,
+	MO_ON DATE NULL,
+	AU_BY VARCHAR2(12) NULL,
+	AU_ON DATE NULL,
+	TBA_KEY VARCHAR2(25) NULL,
+	PRIMARY KEY (PGM_CODE)
+);
+
+CREATE TABLE USER_ACCOUNTS (
+	USER_ID VARCHAR2(12) NOT NULL,
+	USER_FULLNAME VARCHAR2(120) NULL,
+	USER_ROLE_CODE VARCHAR2(12) NULL,
+	USER_MOBILE VARCHAR2(10) NULL,
+	USER_EMAIL VARCHAR2(255) NULL,
+	USER_REGIONS CHAR(1) NULL,
+	USER_BRN_ACCESS CHAR(1),
+	USER_STATUS CHAR(1) NULL,
+	USER_PASS VARCHAR2(255) NULL,
+	PASS_CHG_FLAG CHAR(1) NULL,
+	PASS_CHG_DATE DATE NULL,
+	CR_BY VARCHAR2(12) NULL,
+	CR_ON DATE NULL,
+	MO_BY VARCHAR2(12) NULL,
+	MO_ON DATE NULL,
+	AU_BY VARCHAR2(12) NULL,
+	AU_ON DATE NULL,
+	TBA_KEY VARCHAR2(25) NULL,
+	RESIGN_DATE     DATE,
+    TRANSFER_FLAG   CHAR(1),
+	PRIMARY KEY (USER_ID)
+);
+
+insert into USER_ACCOUNTS (USER_ID, USER_FULLNAME, USER_ROLE_CODE, USER_MOBILE, USER_EMAIL, USER_REGIONS, USER_BRN_ACCESS, USER_STATUS, USER_PASS, PASS_CHG_FLAG, PASS_CHG_DATE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, RESIGN_DATE, TRANSFER_FLAG)
+values ('SUPERENTRY', 'RAJESH KUMAR', 'VKYCADMIN', '7508177287', 'rajesh1.kumar@capitalbank.co.in', 'A', null, 'A', '$2y$10$U.enM58HvXdwb.5jxUBfP.X/q4duFjeei0d65C/hLfxBX9GLaKXVC', null, null, 'SYSADMIN', to_date('12-05-2023 16:01:58', 'dd-mm-yyyy hh24:mi:ss'), 'SYSADMIN', to_date('12-05-2023 16:50:59', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null);
+
+insert into USER_ACCOUNTS (USER_ID, USER_FULLNAME, USER_ROLE_CODE, USER_MOBILE, USER_EMAIL, USER_REGIONS, USER_BRN_ACCESS, USER_STATUS, USER_PASS, PASS_CHG_FLAG, PASS_CHG_DATE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, RESIGN_DATE, TRANSFER_FLAG)
+values ('ADMIN1', 'ADMIN001', 'VKYCADMIN', '8675643234', 'test113@example.com', 'A', null, 'A', '$2y$10$MlEqOMwlIs/1UMOmU7tpzerpuEnqsKNaGP4.yjv7K0gP47Ij9ovWW', null, to_date('22-10-2024 15:32:19', 'dd-mm-yyyy hh24:mi:ss'), 'SYSADMIN', to_date('22-06-2023 12:08:40', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null, null, null);
+
+insert into USER_ACCOUNTS (USER_ID, USER_FULLNAME, USER_ROLE_CODE, USER_MOBILE, USER_EMAIL, USER_REGIONS, USER_BRN_ACCESS, USER_STATUS, USER_PASS, PASS_CHG_FLAG, PASS_CHG_DATE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, RESIGN_DATE, TRANSFER_FLAG)
+values ('CSFBADMIN', 'CSFB ADMIN', 'VKYCADMIN', '8266789090', 'csfbadmin@gmail.com', 'A', 'A', 'A', '$2y$10$CYgJGSlGR7m3ji6sfvUkVOKKmfj6MhBHKDGkvDxxx8zRudZB1srOm', null, null, 'SYSADMIN', to_date('01-10-2022', 'dd-mm-yyyy'), 'SYSADMIN', to_date('06-10-2022 12:01:43', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null);
+
+insert into USER_ACCOUNTS (USER_ID, USER_FULLNAME, USER_ROLE_CODE, USER_MOBILE, USER_EMAIL, USER_REGIONS, USER_BRN_ACCESS, USER_STATUS, USER_PASS, PASS_CHG_FLAG, PASS_CHG_DATE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, RESIGN_DATE, TRANSFER_FLAG)
+values ('CSFBAGENT', 'CSFB VKYC AGENT', 'VKYCAGENT', '8558811915', 'test@example.com', 'A', null, 'A', '$2y$10$Ul5gWLrO6K6YZXB2adA/LOkrVxHdcVpovT8RhGHSY6jue4iSN3426', null, null, 'SYSADMIN', to_date('14-11-2022 14:52:30', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null, null, null);
+
+insert into USER_ACCOUNTS (USER_ID, USER_FULLNAME, USER_ROLE_CODE, USER_MOBILE, USER_EMAIL, USER_REGIONS, USER_BRN_ACCESS, USER_STATUS, USER_PASS, PASS_CHG_FLAG, PASS_CHG_DATE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, RESIGN_DATE, TRANSFER_FLAG)
+values ('CSFBREVIEWER', 'APP REVIEWER', 'REVIEWER', '8558811915', 'test@example.com', 'A', null, 'A', '$2y$10$FLaAOdxZzW43pXTLPB/4ee5xzNVs.hvPAmImq8HuDBVt9hI9fBnv2', null, null, 'SYSADMIN', to_date('14-11-2022 14:53:42', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null, null, null);
+
+insert into USER_ACCOUNTS (USER_ID, USER_FULLNAME, USER_ROLE_CODE, USER_MOBILE, USER_EMAIL, USER_REGIONS, USER_BRN_ACCESS, USER_STATUS, USER_PASS, PASS_CHG_FLAG, PASS_CHG_DATE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, RESIGN_DATE, TRANSFER_FLAG)
+values ('CSFBAUTH', 'AUTHORISER', 'AUTH', '8558811915', 'test@example.com', 'A', null, 'A', '$2y$10$.CaoXaTNTLwmBMBMAFQyfOc2/PsFyxkhlU.h.PR5qgx62TOk.tYEC', null, null, 'SYSADMIN', to_date('14-11-2022 14:54:24', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null, null, null);
+
+insert into USER_ACCOUNTS (USER_ID, USER_FULLNAME, USER_ROLE_CODE, USER_MOBILE, USER_EMAIL, USER_REGIONS, USER_BRN_ACCESS, USER_STATUS, USER_PASS, PASS_CHG_FLAG, PASS_CHG_DATE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, RESIGN_DATE, TRANSFER_FLAG)
+values ('SYSADMIN', 'SYSTEM ADMIN', 'ADMIN', '8197187971', 'harshitha.7816@gmail.com', 'A', 'A', 'A', '$2y$10$dPsQ/ijaTkWa5TbmASgDge32/83K38HQ4zwzYcf/rM4TdXtW1m2r2', null, to_date('17-05-2023 11:40:07', 'dd-mm-yyyy hh24:mi:ss'), 'SYSADMIN', to_date('20-09-2022 04:35:00', 'dd-mm-yyyy hh24:mi:ss'), 'SYSTEM', to_date('20-09-2022', 'dd-mm-yyyy'), null, null, null, null, null);
+
+insert into USER_ACCOUNTS (USER_ID, USER_FULLNAME, USER_ROLE_CODE, USER_MOBILE, USER_EMAIL, USER_REGIONS, USER_BRN_ACCESS, USER_STATUS, USER_PASS, PASS_CHG_FLAG, PASS_CHG_DATE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, RESIGN_DATE, TRANSFER_FLAG)
+values ('CSFBVIEWER', 'APP VIEWER', 'VIEWONLY', '8558811915', 'test@example.com', '2', null, 'A', '$2y$10$IU..KJ53iybtlTzeF6mL0OfC5l4yHprrbLgW2RKZMZYMqlOMXEuHu', null, null, 'SYSADMIN', to_date('14-11-2022 15:22:18', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null, null, null);
+
+
+-- Create table
+create table ASSREQ_ACNT_SUBTYP
+(
+  acnttyp_code   VARCHAR2(15) not null,
+  acnttyp_desc   VARCHAR2(255),
+  acnttyp_status CHAR(1),
+  cr_by          VARCHAR2(30),
+  cr_on          DATE,
+  mo_by          VARCHAR2(30),
+  mo_on          DATE,
+  au_by          VARCHAR2(30),
+  au_on          DATE,
+  tba_key        VARCHAR2(30)
+)
+tablespace USERS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table ASSREQ_ACNT_SUBTYP
+  add primary key (ACNTTYP_CODE)
+  using index 
+  tablespace USERS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+
+
+insert into ASSREQ_ACNT_SUBTYP (ACNTTYP_CODE, ACNTTYP_DESC, ACNTTYP_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('01', 'Public', '1', 'SYSADMIN', to_date('13-03-2025', 'dd-mm-yyyy'), null, null, null, null, null);
+
+insert into ASSREQ_ACNT_SUBTYP (ACNTTYP_CODE, ACNTTYP_DESC, ACNTTYP_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('02', 'Staff', '1', 'SYSADMIN', to_date('13-03-2025', 'dd-mm-yyyy'), null, null, null, null, null);
+
+insert into ASSREQ_ACNT_SUBTYP (ACNTTYP_CODE, ACNTTYP_DESC, ACNTTYP_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('03', 'Senior Citizen', '1', 'SYSADMIN', to_date('13-03-2025', 'dd-mm-yyyy'), null, null, null, null, null);
+
+
+-- Create table
+create table ASSREQ_USER_ACCOUNTS_DTL
+(
+  auth_ref_num        VARCHAR2(50),
+  user_id             VARCHAR2(50) not null,
+  user_fullname       VARCHAR2(120),
+  transfer_frombranch VARCHAR2(10),
+  transfer_tobranch   VARCHAR2(10),
+  transfer_date       DATE,
+  cr_by               VARCHAR2(12),
+  cr_on               DATE,
+  resign_date         DATE,
+  au_by               VARCHAR2(50),
+  au_on               DATE,
+  user_acnt_status    CHAR(1),
+  user_status         CHAR(1),
+  rj_by               VARCHAR2(50),
+  rj_on               DATE,
+  user_regions        VARCHAR2(20),
+  auth_remarks        VARCHAR2(120),
+  PRIMARY KEY(auth_ref_num));
+)
+tablespace SYSTEM
+  pctfree 10
+  pctused 40
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+
+
+CREATE TABLE ASSREQ_USER_ACCOUNTS (
+	USER_ID VARCHAR2(12) NOT NULL,
+	USER_FULLNAME VARCHAR2(120) NULL,
+	USER_ROLE_CODE VARCHAR2(12) NULL,
+	USER_MOBILE VARCHAR2(10) NULL,
+	USER_EMAIL VARCHAR2(255) NULL,
+	USER_REGIONS VARCHAR2(10) NULL,
+	USER_BRN_ACCESS CHAR(1) NULL,
+	USER_STATUS CHAR(1) NULL,
+	USER_PASS VARCHAR2(255) NULL,
+	PASS_CHG_FLAG CHAR(1) NULL,
+	PASS_CHG_DATE DATE NULL,
+	CR_BY VARCHAR2(12) NULL,
+	CR_ON DATE NULL,
+	MO_BY VARCHAR2(12) NULL,
+	MO_ON DATE NULL,
+	AU_BY VARCHAR2(12) NULL,
+	AU_ON DATE NULL,
+	TBA_KEY VARCHAR2(25) NULL,
+	RESIGN_DATE     DATE,
+    TRANSFER_FLAG   CHAR(1),
+	PRIMARY KEY (USER_ID)
+);
+
+insert into ASSREQ_USER_ACCOUNTS (USER_ID, USER_FULLNAME, USER_ROLE_CODE, USER_MOBILE, USER_EMAIL, USER_REGIONS, USER_BRN_ACCESS, USER_STATUS, USER_PASS, PASS_CHG_FLAG, PASS_CHG_DATE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, RESIGN_DATE, TRANSFER_FLAG)
+values ('SUPERENTRY', 'RAJESH KUMAR', 'VKYCADMIN', '7508177287', 'rajesh1.kumar@capitalbank.co.in', 'A', null, 'A', '$2y$10$U.enM58HvXdwb.5jxUBfP.X/q4duFjeei0d65C/hLfxBX9GLaKXVC', null, null, 'SYSADMIN', to_date('12-05-2023 16:01:58', 'dd-mm-yyyy hh24:mi:ss'), 'SYSADMIN', to_date('12-05-2023 16:50:59', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null);
+
+insert into ASSREQ_USER_ACCOUNTS (USER_ID, USER_FULLNAME, USER_ROLE_CODE, USER_MOBILE, USER_EMAIL, USER_REGIONS, USER_BRN_ACCESS, USER_STATUS, USER_PASS, PASS_CHG_FLAG, PASS_CHG_DATE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, RESIGN_DATE, TRANSFER_FLAG)
+values ('ADMIN1', 'ADMIN001', 'VKYCADMIN', '8675643234', 'test113@example.com', 'A', null, 'A', '$2y$10$MlEqOMwlIs/1UMOmU7tpzerpuEnqsKNaGP4.yjv7K0gP47Ij9ovWW', null, to_date('22-10-2024 15:32:19', 'dd-mm-yyyy hh24:mi:ss'), 'SYSADMIN', to_date('22-06-2023 12:08:40', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null, null, null);
+
+insert into ASSREQ_USER_ACCOUNTS (USER_ID, USER_FULLNAME, USER_ROLE_CODE, USER_MOBILE, USER_EMAIL, USER_REGIONS, USER_BRN_ACCESS, USER_STATUS, USER_PASS, PASS_CHG_FLAG, PASS_CHG_DATE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, RESIGN_DATE, TRANSFER_FLAG)
+values ('CSFBADMIN', 'CSFB ADMIN', 'VKYCADMIN', '8266789090', 'csfbadmin@gmail.com', 'A', 'A', 'A', '$2y$10$CYgJGSlGR7m3ji6sfvUkVOKKmfj6MhBHKDGkvDxxx8zRudZB1srOm', null, null, 'SYSADMIN', to_date('01-10-2022', 'dd-mm-yyyy'), 'SYSADMIN', to_date('06-10-2022 12:01:43', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null);
+
+insert into ASSREQ_USER_ACCOUNTS (USER_ID, USER_FULLNAME, USER_ROLE_CODE, USER_MOBILE, USER_EMAIL, USER_REGIONS, USER_BRN_ACCESS, USER_STATUS, USER_PASS, PASS_CHG_FLAG, PASS_CHG_DATE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, RESIGN_DATE, TRANSFER_FLAG)
+values ('CSFBAGENT', 'CSFB VKYC AGENT', 'VKYCAGENT', '8558811915', 'test@example.com', 'A', null, 'A', '$2y$10$Ul5gWLrO6K6YZXB2adA/LOkrVxHdcVpovT8RhGHSY6jue4iSN3426', null, null, 'SYSADMIN', to_date('14-11-2022 14:52:30', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null, null, null);
+
+insert into ASSREQ_USER_ACCOUNTS (USER_ID, USER_FULLNAME, USER_ROLE_CODE, USER_MOBILE, USER_EMAIL, USER_REGIONS, USER_BRN_ACCESS, USER_STATUS, USER_PASS, PASS_CHG_FLAG, PASS_CHG_DATE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, RESIGN_DATE, TRANSFER_FLAG)
+values ('CSFBREVIEWER', 'APP REVIEWER', 'REVIEWER', '8558811915', 'test@example.com', 'A', null, 'A', '$2y$10$FLaAOdxZzW43pXTLPB/4ee5xzNVs.hvPAmImq8HuDBVt9hI9fBnv2', null, null, 'SYSADMIN', to_date('14-11-2022 14:53:42', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null, null, null);
+
+insert into ASSREQ_USER_ACCOUNTS (USER_ID, USER_FULLNAME, USER_ROLE_CODE, USER_MOBILE, USER_EMAIL, USER_REGIONS, USER_BRN_ACCESS, USER_STATUS, USER_PASS, PASS_CHG_FLAG, PASS_CHG_DATE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, RESIGN_DATE, TRANSFER_FLAG)
+values ('CSFBAUTH', 'AUTHORISER', 'AUTH', '8558811915', 'test@example.com', 'A', null, 'A', '$2y$10$.CaoXaTNTLwmBMBMAFQyfOc2/PsFyxkhlU.h.PR5qgx62TOk.tYEC', null, null, 'SYSADMIN', to_date('14-11-2022 14:54:24', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null, null, null);
+
+insert into ASSREQ_USER_ACCOUNTS (USER_ID, USER_FULLNAME, USER_ROLE_CODE, USER_MOBILE, USER_EMAIL, USER_REGIONS, USER_BRN_ACCESS, USER_STATUS, USER_PASS, PASS_CHG_FLAG, PASS_CHG_DATE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, RESIGN_DATE, TRANSFER_FLAG)
+values ('SYSADMIN', 'SYSTEM ADMIN', 'ADMIN', '8197187971', 'harshitha.7816@gmail.com', 'A', 'A', 'A', '$2y$10$dPsQ/ijaTkWa5TbmASgDge32/83K38HQ4zwzYcf/rM4TdXtW1m2r2', null, to_date('17-05-2023 11:40:07', 'dd-mm-yyyy hh24:mi:ss'), 'SYSADMIN', to_date('20-09-2022 04:35:00', 'dd-mm-yyyy hh24:mi:ss'), 'SYSTEM', to_date('20-09-2022', 'dd-mm-yyyy'), null, null, null, null, null);
+
+insert into ASSREQ_USER_ACCOUNTS (USER_ID, USER_FULLNAME, USER_ROLE_CODE, USER_MOBILE, USER_EMAIL, USER_REGIONS, USER_BRN_ACCESS, USER_STATUS, USER_PASS, PASS_CHG_FLAG, PASS_CHG_DATE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, RESIGN_DATE, TRANSFER_FLAG)
+values ('CSFBVIEWER', 'APP VIEWER', 'VIEWONLY', '8558811915', 'test@example.com', '2', null, 'A', '$2y$10$IU..KJ53iybtlTzeF6mL0OfC5l4yHprrbLgW2RKZMZYMqlOMXEuHu', null, null, 'SYSADMIN', to_date('14-11-2022 15:22:18', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null, null, null);
+
+-- Create table
+create table ASSREQ_PRODUCT_CODE
+(
+  product_code   VARCHAR2(15) not null,
+  product_desc   VARCHAR2(255),
+  product_status CHAR(1),
+  cr_by          VARCHAR2(30),
+  cr_on          DATE,
+  mo_by          VARCHAR2(30),
+  mo_on          DATE,
+  au_by          VARCHAR2(30),
+  au_on          DATE,
+  tba_key        VARCHAR2(30)
+)
+tablespace USERS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table ASSREQ_PRODUCT_CODE
+  add primary key (PRODUCT_CODE)
+  using index 
+  tablespace USERS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+
+
+
+  
+-- Create table
+create table ASSREQ_USER_ROLES
+(
+  role_code        VARCHAR2(12) not null,
+  role_desc        VARCHAR2(120),
+  role_status      CHAR(1),
+  role_req_visible CHAR(1),
+  cr_by            VARCHAR2(12),
+  cr_on            DATE,
+  mo_by            VARCHAR2(12),
+  mo_on            DATE,
+  au_by            VARCHAR2(12),
+  au_on            DATE,
+  tba_key          VARCHAR2(25),
+  role_workclass   VARCHAR2(30)
+)
+tablespace SYSTEM
+  pctfree 10
+  pctused 40
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+
+
+
+insert into ASSREQ_USER_ROLES (ROLE_CODE, ROLE_DESC, ROLE_STATUS, ROLE_REQ_VISIBLE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, ROLE_WORKCLASS)
+values ('REVIEWER', 'APPLICATION REVIEWER', '1', null, 'SYSADMIN', to_date('14-11-2022 14:38:08', 'dd-mm-yyyy hh24:mi:ss'), 'SYSADMIN', to_date('24-10-2024 18:31:36', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, 'REVIEW');
+
+insert into ASSREQ_USER_ROLES (ROLE_CODE, ROLE_DESC, ROLE_STATUS, ROLE_REQ_VISIBLE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, ROLE_WORKCLASS)
+values ('AUTH', 'AUTHORISER', '1', null, 'SYSADMIN', to_date('14-11-2022 14:38:29', 'dd-mm-yyyy hh24:mi:ss'), 'SYSADMIN', to_date('24-10-2024 18:31:12', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, 'AUTH');
+
+insert into ASSREQ_USER_ROLES (ROLE_CODE, ROLE_DESC, ROLE_STATUS, ROLE_REQ_VISIBLE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, ROLE_WORKCLASS)
+values ('ADMIN', 'ADMIN', '1', null, 'SYSADMIN', to_date('24-10-2024 18:30:47', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null, null);
+
+
+CREATE TABLE ASSREQ_USER_ROLES_DTL(
+	DTL_ROLE_CODE VARCHAR2(12) NOT NULL,
+	DTL_PGM_CODE VARCHAR2(20) NOT NULL,
+	PGM_ACCESS_TYPE CHAR(3) NULL,
+	PRIMARY KEY (DTL_ROLE_CODE, DTL_PGM_CODE)
+);
+
+
+
+insert into ASSREQ_USER_ROLES_DTL (DTL_ROLE_CODE, DTL_PGM_CODE, PGM_ACCESS_TYPE)
+values ('ADMIN', 'APPROLES', null);
+
+insert into ASSREQ_USER_ROLES_DTL (DTL_ROLE_CODE, DTL_PGM_CODE, PGM_ACCESS_TYPE)
+values ('ADMIN', 'APPUSERS', null);
+
+insert into ASSREQ_USER_ROLES_DTL (DTL_ROLE_CODE, DTL_PGM_CODE, PGM_ACCESS_TYPE)
+values ('ADMIN', 'REVIEWACNT', null);
+
+insert into ASSREQ_USER_ROLES_DTL (DTL_ROLE_CODE, DTL_PGM_CODE, PGM_ACCESS_TYPE)
+values ('ADMIN', 'COMPACNT', null);
+
+insert into ASSREQ_USER_ROLES_DTL (DTL_ROLE_CODE, DTL_PGM_CODE, PGM_ACCESS_TYPE)
+values ('ADMIN', 'APPLACNT', null);
+
+insert into ASSREQ_USER_ROLES_DTL (DTL_ROLE_CODE, DTL_PGM_CODE, PGM_ACCESS_TYPE)
+values ('ADMIN', 'BRNCHRPT', null);
+
+insert into ASSREQ_USER_ROLES_DTL (DTL_ROLE_CODE, DTL_PGM_CODE, PGM_ACCESS_TYPE)
+values ('AUTH', 'REVIEWACNT', null);
+
+insert into ASSREQ_USER_ROLES_DTL (DTL_ROLE_CODE, DTL_PGM_CODE, PGM_ACCESS_TYPE)
+values ('AUTH', 'COMPACNT', null);
+
+insert into ASSREQ_USER_ROLES_DTL (DTL_ROLE_CODE, DTL_PGM_CODE, PGM_ACCESS_TYPE)
+values ('REVIEWER', 'APPLACNT', null);
+
+insert into ASSREQ_USER_ROLES_DTL (DTL_ROLE_CODE, DTL_PGM_CODE, PGM_ACCESS_TYPE)
+values ('REVIEWER', 'BRNCHRPT', null);
+
+-- Create table
+create table ASSREQ_APP_PROGRAMS
+(
+  pgm_code      VARCHAR2(20) not null,
+  pgm_name      VARCHAR2(120),
+  pgm_desc      VARCHAR2(255),
+  pgm_file_path VARCHAR2(60),
+  pgm_mdi_icon  VARCHAR2(60),
+  pgm_category  VARCHAR2(12),
+  pgm_status    CHAR(1),
+  cr_by         VARCHAR2(12),
+  cr_on         DATE,
+  mo_by         VARCHAR2(12),
+  mo_on         DATE,
+  au_by         VARCHAR2(12),
+  au_on         DATE,
+  tba_key       VARCHAR2(25),
+  pgm_order     VARCHAR2(12)
+)
+tablespace USERS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table ASSREQ_APP_PROGRAMS
+  add primary key (PGM_CODE)
+  using index 
+  tablespace USERS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+
+
+insert into assreq_app_programs (PGM_CODE, PGM_NAME, PGM_DESC, PGM_FILE_PATH, PGM_MDI_ICON, PGM_CATEGORY, PGM_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, PGM_ORDER)
+values ('APPROLES', 'App User Roles', null, 'app-user-roles', 'app-user-roles.svg', null, '1', 'SYSADMIN', to_date('24-10-2024 12:24:29', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null, '6');
+
+insert into assreq_app_programs (PGM_CODE, PGM_NAME, PGM_DESC, PGM_FILE_PATH, PGM_MDI_ICON, PGM_CATEGORY, PGM_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, PGM_ORDER)
+values ('APPUSERS', 'User Accounts', null, 'app-user-accounts', 'app-user-accounts.svg', null, '1', 'SYSADMIN', to_date('24-10-2024 12:24:29', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null, '5');
+
+insert into assreq_app_programs (PGM_CODE, PGM_NAME, PGM_DESC, PGM_FILE_PATH, PGM_MDI_ICON, PGM_CATEGORY, PGM_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, PGM_ORDER)
+values ('REVIEWACNT', ' Review Account Request', null, 'review-request', 'channel-limit.svg', null, '1', 'SYSADMIN', to_date('24-10-2024 12:24:29', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null, '2');
+
+insert into assreq_app_programs (PGM_CODE, PGM_NAME, PGM_DESC, PGM_FILE_PATH, PGM_MDI_ICON, PGM_CATEGORY, PGM_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, PGM_ORDER)
+values ('COMPACNT', 'Completed Account Request', null, 'completed-request', 'conf-users.svg', null, '1', 'SYSADMIN', to_date('24-10-2024 12:24:29', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null, '3');
+
+insert into assreq_app_programs (PGM_CODE, PGM_NAME, PGM_DESC, PGM_FILE_PATH, PGM_MDI_ICON, PGM_CATEGORY, PGM_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, PGM_ORDER)
+values ('APPLACNT', 'Account Application', null, 'main-assistant', 'conf-masters.svg', null, '1', 'SYSADMIN', to_date('24-10-2024 12:24:29', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null, '1');
+
+insert into assreq_app_programs (PGM_CODE, PGM_NAME, PGM_DESC, PGM_FILE_PATH, PGM_MDI_ICON, PGM_CATEGORY, PGM_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY, PGM_ORDER)
+values ('BRNCHRPT', 'Branch User report', null, 'branch-user-report', 'report-ledger.svg', null, '1', 'SYSADMIN', to_date('24-10-2024 12:24:29', 'dd-mm-yyyy hh24:mi:ss'), null, null, null, null, null, '4');
+
+
+create sequence COMMONAUTH_SEQ
+minvalue 1
+maxvalue 9999999
+start with 1000301
+increment by 1
+cache 50
+cycle;
+
+CREATE TABLE MCHANNELS (
+  CHANNEL_CODE 		VARCHAR2(12) not null,
+  CHANNEL_NAME       VARCHAR2(50),
+  ALLOWED_ON_HOLIDAY CHAR(1),
+  ALLOW_BUY          CHAR(1),
+  ALLOW_SELL         CHAR(1),
+  ALLOW_TRANSFER     CHAR(1),
+  ALLOW_REDEEM       CHAR(1),
+  ENABLED            CHAR(1), 
+  CR_BY              VARCHAR2(50),
+  CR_ON              DATE,
+  AU_BY              VARCHAR2(50),
+  AU_ON              DATE,
+  MO_BY              VARCHAR2(50),
+  MO_ON              DATE,
+  TBA_KEY            VARCHAR2(25),
+  PRIMARY KEY (CHANNEL_CODE)
+);
+
+CREATE TABLE MCHANNELBHDTL(
+  CHANNEL_CODE VARCHAR2(12) not null,
+  SL          NUMBER(3) not null,
+  WEEKDAY      CHAR(1) not null,  
+  ALLOW_ON_SUNDAY    CHAR(1),
+  ALLOW_ON_MONDAY    CHAR(1),
+  ALLOW_ON_TUESDAY   CHAR(1),
+  ALLOW_ON_WEDNESDAY CHAR(1),
+  ALLOW_ON_THURSDAY  CHAR(1),
+  ALLOW_ON_FRIDAY    CHAR(1),
+  ALLOW_ON_SATURDAY  CHAR(1),
+  FROM_TIME    NUMBER(4),
+  UPTO_TIME    NUMBER(4),
+  WINDOW_TIME  NUMBER(4),
+  PRIMARY KEY (CHANNEL_CODE, SL, WEEKDAY)
+);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('APP_NAME', 'Digi Gold', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('APP_SHORT_NAME', 'Digi Gold', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('BRAND_NAME', 'KBZ Bank', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('BRAND_SHORT_NAME', 'KBZ Bank', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('COPYRIGHT_BY', 'KBZ Bank', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('CURRENCY_PREFIX', 'Rs. ', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('CURRENCY_SUFFIX', '', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('CUST_MAX_SMS', '10', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('DEVELOPER', 'Shivananda Shenoy (Madhukar)', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('EMAIL_AUTH_REQ', 'true', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('EMAIL_ENABLE', 'OFF', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('EMAIL_FROM', '', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('EMAIL_FROM_NAME', 'KBZ Bank Digi Gold', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('EMAIL_HOST', '', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('EMAIL_PASSWORD', '', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('EMAIL_PORT', '587', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('EMAIL_SECURE', 'tls', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('EMAIL_USERNAME', '', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('MAINTENANCE_ADMIN', 'OFF', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('MAINTENANCE_CLIENT', 'OFF', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('OTP_EXPIRY_TIME', '300', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('OTP_RESEND_COUNT', '2', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('OTP_RSND_BTN_TIME', '60', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('POWERED_BY', 'LCode Technologies Pvt. Ltd.', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('SMS_CLIENT_LINK', 'Dear Customer, Please open link to start Digi Gold with KBZ Bank : {{ClientURL}}', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('SMS_ENABLE', 'OFF', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('SQL_DATE_FORMAT', '', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('SUPPORT_EMAIL', '', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+insert into APP_DATA_SETTINGS (OPTION_NAME, OPTION_VALUE, OPTION_STATUS, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('SUPPORT_PHONE', '', 1, 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+--------------------
+
+insert into ASSREQ_USER_ACCOUNTS (USER_ID, USER_FULLNAME, USER_ROLE_CODE, USER_MOBILE, USER_EMAIL, USER_REGIONS, USER_STATUS, USER_PASS, PASS_CHG_FLAG, PASS_CHG_DATE, CR_BY, CR_ON, MO_BY, MO_ON, AU_BY, AU_ON, TBA_KEY)
+values ('SYSADMIN', 'SYSTEM ADMIN', 'ADMIN', '7892963815', 'test@example.com', 'S', '1', '$2y$10$7pYkK4lPUT4bLFbaU6VJKeI2tfLtZP2QfpPyiGO5kJ2i48ptR0DSe', null,  to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), 'SYSTEM', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), 'SYSADMIN', to_date('31-07-2020 10:00:00', 'dd-mm-yyyy hh24:mi:ss'), null, null, null);
+
+create table ACTIVITYCHRGTAX
+(
+  CHANNEL_CODE    VARCHAR2(12) not null,
+  ACTIVITY_TYPE   VARCHAR2(12) not null,
+  EFFT_DATE       DATE not null,
+  DTL_SL          NUMBER(5) not null,
+  CHARGE_TAX      CHAR(1),
+  CHARGE_TAX_CODE VARCHAR2(50),
+  CHARGE_TYPE     CHAR(1),
+  ENABLED         CHAR(1),
+  CR_BY           VARCHAR2(50),
+  CR_ON           DATE,
+  AU_BY           VARCHAR2(50),
+  AU_ON           DATE,
+  MO_BY           VARCHAR2(50),
+  MO_ON           DATE,
+  TBA_KEY         VARCHAR2(25)
+)
+;
+alter table ACTIVITYCHRGTAX
+  add primary key (CHANNEL_CODE, ACTIVITY_TYPE, EFFT_DATE, DTL_SL);
+
+prompt Creating CHANNELACTLIMITS...
+create table CHANNELACTLIMITS
+(
+  CHANNEL_CODE           VARCHAR2(12) not null,
+  ACTIVITY_TYPE          VARCHAR2(12) not null,
+  EFFT_DATE              DATE not null,
+  ENABLED                CHAR(1),
+  MIN_AMOUNT             NUMBER(30,3),
+  MIN_GRAMS              NUMBER(30,3),
+  MAX_AMOUNT_PER_REQ_KYC NUMBER(30,3),
+  MAX_AMOUNT_PER_DAY_KYC NUMBER(30,3),
+  MAX_GRAMS_PER_REQ_KYC  NUMBER(30,3),
+  MAX_GRAMS_PER_DAY_KYC  NUMBER(30,3),
+  MAX_AMOUNT_PER_REQ     NUMBER(30,3),
+  MAX_AMOUNT_PER_DAY     NUMBER(30,3),
+  MAX_GRAMS_PER_REQ      NUMBER(30,3),
+  MAX_GRAMS_PER_DAY      NUMBER(30,3),
+  CR_BY                  VARCHAR2(50),
+  CR_ON                  DATE,
+  AU_BY                  VARCHAR2(50),
+  AU_ON                  DATE,
+  MO_BY                  VARCHAR2(50),
+  MO_ON                  DATE,
+  TBA_KEY                VARCHAR2(25)
+)
+;
+alter table CHANNELACTLIMITS add primary key (CHANNEL_CODE, ACTIVITY_TYPE, EFFT_DATE);
+
+
+
+prompt Creating GOLDPARAM...
+create table GOLDPARAM
+(
+  EFFT_DATE                DATE not null,
+  MIN_COOL_PERIOD_SELL     NUMBER(4),
+  MIN_COOL_PERIOD_TRANSFER NUMBER(4),
+  MIN_COOL_PERIOD_REDEEM   NUMBER(4),
+  CR_BY                    VARCHAR2(50),
+  CR_ON                    DATE,
+  MO_BY                    VARCHAR2(50),
+  MO_ON                    DATE,
+  AU_BY                    VARCHAR2(50),
+  AU_ON                    DATE,
+  TBA_KEY                  VARCHAR2(25)
+)
+;
+alter table GOLDPARAM
+  add primary key (EFFT_DATE);
+
+prompt Creating GOLDTYPES...
+create table GOLDTYPES
+(
+  GOLD_TYPE VARCHAR2(12) not null,
+  GOLD_DESC VARCHAR2(100),
+  MIN_THRESHOLD  NUMBER(2),
+  ENABLED   CHAR(1),
+  CR_BY     VARCHAR2(50),
+  CR_ON     DATE,
+  MO_BY     VARCHAR2(50),
+  MO_ON     DATE,
+  AU_BY     VARCHAR2(50),
+  AU_ON     DATE,
+  TBA_KEY   VARCHAR2(25)
+)
+;
+alter table GOLDTYPES
+  add constraint GOLD_TYPE primary key (GOLD_TYPE);
+
+prompt Creating GOLD_RATES...
+create table GOLD_RATES
+(
+  GOLD_TYPE VARCHAR2(12) not null,
+  EFFT_DATE DATE not null,
+  DAY_SL    NUMBER(5) not null,
+  BUY_RATE  NUMBER(18,4),
+  SELL_RATE NUMBER(18,4),
+  CR_BY     VARCHAR2(50),
+  CR_ON     DATE,
+  AU_BY     VARCHAR2(50),
+  AU_ON     DATE,
+  MO_BY     VARCHAR2(50),
+  MO_ON     DATE,
+  TBA_KEY   VARCHAR2(25)
+)
+;
+alter table GOLD_RATES
+  add primary key (GOLD_TYPE, EFFT_DATE, DAY_SL);
+
+prompt Creating MCHARGES...
+create table MCHARGES
+(
+  CHARGE_CODE  VARCHAR2(12) not null,
+  CHARGE_NAME  VARCHAR2(50),
+  PURPOSE      VARCHAR2(50),
+  GLHEAD       VARCHAR2(35),
+  CHARGE_TYPE  CHAR(1),
+  FIXED_AMOUNT NUMBER(18,3),
+  ENABLED      CHAR(1),
+  CR_BY        VARCHAR2(50),
+  CR_ON        DATE,
+  AU_BY        VARCHAR2(50),
+  AU_ON        DATE,
+  MO_BY        VARCHAR2(50),
+  MO_ON        DATE,
+  TBA_KEY      VARCHAR2(25)
+)
+;
+alter table MCHARGES
+  add primary key (CHARGE_CODE);
+
+prompt Creating MCHARGESDTL...
+create table MCHARGESDTL
+(
+  CHARGE_CODE       VARCHAR2(12) not null,
+  DTL_SL            NUMBER(5) not null,
+  UPTO_AMOUNT       NUMBER(18,3),
+  CHARGE_PERCENTAGE NUMBER(18,3)
+)
+;
+alter table MCHARGESDTL
+  add primary key (CHARGE_CODE, DTL_SL);
+
+prompt Creating MTAX...
+create table MTAX
+(
+  TAX_CODE        VARCHAR2(12) not null,
+  TAX_DESCRIPTION VARCHAR2(50),
+  TAX_PERCENTAGE  NUMBER(18,2),
+  TAX_GL_HEAD     VARCHAR2(35),
+  ENABLED         CHAR(1),
+  CR_BY           VARCHAR2(50),
+  CR_ON           DATE,
+  AU_BY           VARCHAR2(50),
+  AU_ON           DATE,
+  MO_BY           VARCHAR2(50),
+  MO_ON           DATE,
+  TBA_KEY         VARCHAR2(25)
+)
+;
+alter table MTAX
+  add constraint TAX_CODE primary key (TAX_CODE);
+
+prompt Creating SERVICESACNTGL...
+create table SERVICESACNTGL
+(
+  GOLD_TYPE     VARCHAR2(12) not null,
+  CHANNEL_CODE  VARCHAR2(12) not null,
+  ACTIVITY_TYPE VARCHAR2(12) not null,
+  DBCRFLG       CHAR(1) not null,
+  ACNTNUM       VARCHAR2(35),
+  NODELBRANCH   VARCHAR2(12),
+  GLHEAD        VARCHAR2(35),
+  CR_BY         VARCHAR2(50),
+  CR_ON         DATE,
+  AU_BY         VARCHAR2(50),
+  AU_ON         DATE,
+  MO_BY         VARCHAR2(50),
+  MO_ON         DATE,
+  TBA_KEY       VARCHAR2(25)
+)
+;
+alter table SERVICESACNTGL
+  add primary key (GOLD_TYPE, CHANNEL_CODE, ACTIVITY_TYPE);
+  
+CREATE TABLE MVARIANCE (
+	EFFT_DATE           DATE not null,
+	ENABLED             CHAR(1),
+	FROM_TIME           NUMBER(4),
+	UPTO_TIME           NUMBER(4),
+	VARIANCE_TYPE       CHAR(1),
+	VARIANCE_PERCENTAGE NUMBER(18,3),
+	CR_BY               VARCHAR2(50),
+	CR_ON               DATE,
+	AU_BY               VARCHAR2(50),
+	AU_ON               DATE,
+	MO_BY               VARCHAR2(50),
+	MO_ON               DATE,
+	TBA_KEY             VARCHAR2(25),
+PRIMARY KEY(EFFT_DATE));
+
+CREATE TABLE MACTIVITY (
+  ACTIVITY_TYPE      	VARCHAR2(12) NOT NULL,
+  EFFT_DATE           DATE NOT NULL,
+  ALLOWED_ON_HOLIDAY 	CHAR(1),
+  RATE_FREEZE_TIME   	NUMBER(5),
+  CR_BY              	VARCHAR2(50),
+  CR_ON                 DATE,
+  AU_BY                 VARCHAR2(50),
+  AU_ON                 DATE,
+  MO_BY                 VARCHAR2(50),
+  MO_ON                 DATE,
+  TBA_KEY               VARCHAR2(25),
+PRIMARY KEY (ACTIVITY_TYPE,EFFT_DATE));
+
+CREATE TABLE MACTIVITYBHDTL (
+	ACTIVITY_TYPE 		VARCHAR2(12) NOT NULL,
+	EFFT_DATE         DATE NOT NULL,
+	SL            		NUMBER(3) NOT NULL,
+	WEEKDAY       		CHAR(1) NOT NULL,
+	FROM_TIME     		NUMBER(4),
+	UPTO_TIME     		NUMBER(4),
+	WINDOW_TIME   		NUMBER(4),
+PRIMARY KEY(ACTIVITY_TYPE,EFFT_DATE,SL));
+
+ALTER TABLE GOLD_RATES ADD BUY_WHOLESALE_RATE NUMBER(18,4);
+ALTER TABLE GOLD_RATES ADD BUY_SPREAD_FEE NUMBER(3,2);
+ALTER TABLE GOLD_RATES ADD BUY_CUSTODIAN_FEE NUMBER(3,2);
+ALTER TABLE GOLD_RATES ADD SELL_WHOLESALE_RATE NUMBER(18,4);
+ALTER TABLE GOLD_RATES ADD SELL_SPREAD_FEE NUMBER(3,2);
+ALTER TABLE GOLD_RATES ADD SELL_CUSTODIAN_FEE NUMBER(3,2);
+
+CREATE TABLE MINVENTORY (
+  GOLD_TYPE 		     VARCHAR2(12) NOT NULL,
+  EFFECTIVE_DATE     DATE NOT NULL,
+  DTL_SL             NUMBER(5) NOT NULL,
+  QUANTITY           NUMBER(30,3),
+  AMOUNT             NUMBER(18,3),
+  INV_FLAG           CHAR(1),
+  CR_BY              VARCHAR2(50),
+  CR_ON              DATE,
+  AU_BY              VARCHAR2(50),
+  AU_ON              DATE,
+  MO_BY              VARCHAR2(50),
+  MO_ON              DATE,
+PRIMARY KEY (GOLD_TYPE,EFFECTIVE_DATE,DTL_SL));
+
+CREATE TABLE TBA2_AUTH (
+	TBA2_ENTITY_NUM 	NUMBER(3) NOT NULL,
+	TBA2_REF_NUM		  VARCHAR2(30) NOT NULL,
+	TBA2_PGM_ID			  VARCHAR2(30) NULL,
+	TBA2_OPERN_FLG	   	CHAR(1) NULL,
+	TBA2_AUTH_STATUS	CHAR(1) NULL,
+	TBA2_MAIN_TABLE		VARCHAR2(30) NULL,
+	TBA2_PRI_KEYS		  VARCHAR2(200) NULL,
+	TBA2_AUTH_REMARKS		  VARCHAR2(500) NULL,
+	TBA2_BRN_CODE		  VARCHAR2(10) NULL,
+	TBA2_USR_ROLE		  VARCHAR2(30) NULL,
+	CR_BY 				  VARCHAR2(12) NULL,
+	CR_ON 				  DATE NULL,
+	MO_BY 				  VARCHAR2(12) NULL,
+	MO_ON 				  DATE NULL,
+	AU_BY 				  VARCHAR2(12) NULL,
+	AU_ON 				  DATE NULL,
+	RJ_BY				    VARCHAR2(12) NULL,
+	RJ_ON				    DATE NULL,
+PRIMARY KEY (TBA2_ENTITY_NUM,TBA2_REF_NUM));
+
+CREATE TABLE TBA2_AUTH_DTL (
+	TBA2_ENTITY_NUM		NUMBER(3) NOT NULL,
+	TBA2_REF_NUM		VARCHAR2(30) NOT NULL,
+	TBA2_DTL_SL			NUMBER(4) NOT NULL,
+	TBA2_PGM_ID			VARCHAR2(20) NULL,
+	TBA2_OPERN_FLG		CHAR(1) NULL,
+	TBA2_TABLE_NAME		VARCHAR2(30) NULL,
+	TBA2_TABLE_PKEYS	CLOB,
+	TBA2_TABLE_DATA		CLOB,
+PRIMARY KEY (TBA2_ENTITY_NUM,TBA2_REF_NUM,TBA2_DTL_SL));
+
+CREATE SEQUENCE TBA2_SEQ
+START WITH 10000001
+MAXVALUE 99999999
+INCREMENT BY 1
+CYCLE
+CACHE 50;
+
+CREATE TABLE MTM_RATES(
+  GOLD_TYPE   VARCHAR2(20) NOT NULL,
+  TRAN_DATE   DATE NOT NULL,
+  GOLD_RATE   NUMBER(18,4),
+  REMARKS     VARCHAR2(500),
+  CR_BY       VARCHAR2(50),
+  CR_ON       DATE,
+  MO_BY       VARCHAR2(50),
+  MO_ON       DATE,
+  AU_BY       VARCHAR2(50),
+  AU_ON       DATE,
+  TBA_KEY     VARCHAR2(25),
+PRIMARY KEY (GOLD_TYPE, TRAN_DATE));
+
+CREATE TABLE GOLD_INVENTORY(
+  GOLD_TYPE   VARCHAR2(20) NOT NULL,
+  TRAN_TYPE   VARCHAR2(4) NOT NULL,
+  DAY_SL      NUMBER(4) NOT NULL,
+  GOLD_WEIGHT NUMBER(18,4),
+  TRAN_RATE   NUMBER(18,4),
+  TRAN_DATE   DATE NOT NULL,
+  REMARKS     VARCHAR2(500),
+  CR_BY       VARCHAR2(50),
+  CR_ON       DATE,
+  MO_BY       VARCHAR2(50),
+  MO_ON       DATE,
+  AU_BY       VARCHAR2(50),
+  AU_ON       DATE,
+  TBA_KEY     VARCHAR2(25),
+PRIMARY KEY (GOLD_TYPE, TRAN_DATE, DAY_SL, TRAN_TYPE));
+
+DROP TABLE MCHANNELBHDTL;
+
+CREATE TABLE MCHANNELBHDTL(
+  CHANNEL_CODE      VARCHAR2(12) NOT NULL,
+  SL            	NUMBER(3) NOT NULL,
+  WEEKDAY       	CHAR(1),
+  FROM_TIME     	NUMBER(4),
+  UPTO_TIME     	NUMBER(4),
+  WINDOW_TIME   	NUMBER(4),
+PRIMARY KEY (CHANNEL_CODE, SL));
+
+CREATE TABLE GOLD_INVENTORY_LEDGER(
+GOLD_TYPE                                 VARCHAR2(20) NOT NULL,
+TRAN_DATE                                 DATE NOT NULL,
+DAY_SL                                    NUMBER(8) NOT NULL,
+CHANNEL_CODE                                       VARCHAR2(20),
+ACTIVITY_TYPE                                      VARCHAR2(12),
+GOLD_WEIGHT                                        NUMBER(18,4),
+BALANCE                                            NUMBER(18,4),
+CR_BY                                              VARCHAR2(50),
+CR_ON                                              DATE,
+MO_BY                                              VARCHAR2(50),
+MO_ON                                              DATE,
+AU_BY                                              VARCHAR2(50),
+AU_ON                                              DATE,
+TBA_KEY                                            VARCHAR2(25),
+PRIMARY KEY (GOLD_TYPE,TRAN_DATE,DAY_SL));
+
+CREATE TABLE BANK_LIABILITY_LEDGER(
+GOLD_TYPE                                 VARCHAR2(20) NOT NULL ,
+TRAN_DATE                                 DATE NOT NULL ,
+DAY_SL                                    NUMBER(8) NOT NULL ,
+CHANNEL_CODE                                  VARCHAR2(20),
+ACTIVITY_TYPE                                      VARCHAR2(12),
+GOLD_WEIGHT                                       NUMBER(18,4),
+LIABILITY                                          NUMBER(18,4),
+BALANCE                                            NUMBER(18,4),
+CR_BY                                              VARCHAR2(50),
+CR_ON                                              DATE,
+MO_BY                                              VARCHAR2(50),
+MO_ON                                              DATE,
+AU_BY                                              VARCHAR2(50),
+AU_ON                                              DATE,
+TBA_KEY                                            VARCHAR2(25),
+PRIMARY KEY (GOLD_TYPE,TRAN_DATE,DAY_SL));
+
+CREATE TABLE GOLD_USERS (
+GOLD_ACNT_NUMBER                          VARCHAR2(50) NOT NULL ,
+SOURCE_ID                                          VARCHAR2(4000),
+CUSTOMER_ID                                        VARCHAR2(100),
+MOBILE_NUMBER                             VARCHAR2(50) NOT NULL ,
+USER_NAME                                          VARCHAR2(100),
+USER_REG_DATE                                      DATE,
+USER_STATUS                                        CHAR(1),
+USER_EMAIL_ID                                      VARCHAR2(128),
+USER_ADDRESS                                       VARCHAR2(250),
+USER_TOWN                                          VARCHAR2(100),
+USER_TOWNSHIP                                      VARCHAR2(100),
+USER_STATE                                         VARCHAR2(100),
+USER_PERMANENT_ADDRS                               VARCHAR2(100),
+TRUST_LEVEL                                        VARCHAR2(20),
+USER_LAST_LOGIN_DATE                               DATE,
+PRIMARY KEY (GOLD_ACNT_NUMBER,MOBILE_NUMBER));
+
+CREATE TABLE GOLD_LEDGER (
+SRV_REF_NUM                               VARCHAR2(30) NOT NULL,
+GOLD_ACNT_NUMBER                          VARCHAR2(50) NOT NULL,
+GOLD_TYPE                                 VARCHAR2(12) NOT NULL,
+TRAN_DATE                                 DATE NOT NULL,
+TRANSACTION_DATE                          DATE NOT NULL,
+ACTIVITY_TYPE                                      VARCHAR2(12),
+CHANNEL_CODE                                       VARCHAR2(12),
+RATE                                               NUMBER(18,4),
+QUANTITY                                           NUMBER(18,4),
+TRAN_AMOUNT                                        NUMBER(18,4),
+ORDER_ID                                           VARCHAR2(20),
+PREPAID_ID                                         VARCHAR2(200),
+KBZ_REF_NUM                                        VARCHAR2(200),
+STATUS                                             VARCHAR2(20),
+SELL_EX_TIME                                       DATE,
+TRF_EX_TIME                                        DATE,
+RED_EX_TIME                                        DATE,
+MOBILE_NUMBER                                      VARCHAR2(20),
+PRIMARY KEY (SRV_REF_NUM,GOLD_ACNT_NUMBER,GOLD_TYPE,TRAN_DATE,TRANSACTION_DATE));
+
+CREATE TABLE GOLD_RATE_EXCHANGE (
+ SRV_REF_NUM                               VARCHAR2(30) NOT NULL,
+ GOLD_TYPE                                          VARCHAR2(12),
+ ACTIVITY_TYPE                                      VARCHAR2(12),
+ GOLD_RATE                                          NUMBER(18,4),
+ CR_TIME                                            TIMESTAMP(6),
+ EX_TIME                                            TIMESTAMP(6),
+ CHANNEL_CODE                                       VARCHAR2(12),
+ TRAN_REF_NUM                                       VARCHAR2(20),
+ TRAN_DATE                                          DATE,
+ SPEREAD_FEE                                        NUMBER(3,2),
+ CUSTODIAN_FEE                                      NUMBER(3,2),
+ SPEREAD_VALUE                                      NUMBER(18,4),
+ CUSTODIAN_VALUE                                    NUMBER(18,4),
+ TOTAL_AMT                                          NUMBER(18,4),
+PRIMARY KEY (SRV_REF_NUM));
+
+CREATE TABLE USER_ACCOUNTS_BLOCK (
+  USER_ID        VARCHAR2(12) NOT NULL,
+  USER_STATUS    CHAR(1),
+  CR_BY          VARCHAR2(12),
+  CR_ON          DATE,
+  MO_BY          VARCHAR2(12),
+  MO_ON          DATE,
+  AU_BY          VARCHAR2(12),
+  AU_ON          DATE,
+  TBA_KEY        VARCHAR2(25),
+PRIMARY KEY (USER_ID));
+
+CREATE TABLE DG_REPORTS_MASTER (
+  RPT_CODE          VARCHAR2(20) NOT NULL,
+  FROM_DATE_REQ     VARCHAR2(5),
+  UPTO_DATE_REQ     VARCHAR2(5),
+  STATUS            VARCHAR2(5),
+PRIMARY KEY (RPT_CODE));
+
+-- Create table
+create table ASSREQ_MASTER
+(
+  assreq_ref_num           VARCHAR2(80) not null,
+  assreq_cust_title        VARCHAR2(80),
+  assreq_cust_fname        VARCHAR2(80),
+  assreq_cust_gender       VARCHAR2(80),
+  assreq_cust_dob          DATE,
+  assreq_cust_age          VARCHAR2(80),
+  assreq_mobile_num        VARCHAR2(80),
+  mobile_sms_status        VARCHAR2(80),
+  mobile_otp_status        VARCHAR2(80),
+  assreq_email             VARCHAR2(80),
+  email_status             VARCHAR2(80),
+  email_otp_status         VARCHAR2(80),
+  assreq_cust_addr1        VARCHAR2(80),
+  assreq_cust_addr2        VARCHAR2(80),
+  assreq_cust_state        VARCHAR2(80),
+  assreq_cust_district     VARCHAR2(80),
+  assreq_cust_city         VARCHAR2(80),
+  assreq_cust_pincode      VARCHAR2(80),
+  vkyc_status              VARCHAR2(80),
+  assreq_ekyc_flag         VARCHAR2(80),
+  app_status               VARCHAR2(80),
+  assreq_ekyc_uid          VARCHAR2(80),
+  assreq_ekyc_name         VARCHAR2(80),
+  assreq_pan_flag          CHAR(1),
+  assreq_pan_ref_num       VARCHAR2(80),
+  assreq_pan_card          VARCHAR2(80),
+  assreq_pan_name          VARCHAR2(80),
+  assreq_camera_flag       VARCHAR2(80),
+  assreq_branch_flag       VARCHAR2(80),
+  assreq_basic_detail_flg  VARCHAR2(80),
+  assreq_nominee_flg       VARCHAR2(80),
+  referral_code            VARCHAR2(80),
+  brn_code                 VARCHAR2(80),
+  brnusr_id                VARCHAR2(80),
+  cr_by                    VARCHAR2(80),
+  cr_on                    DATE,
+  mo_by                    VARCHAR2(80),
+  mo_on                    DATE,
+  au_by                    VARCHAR2(80),
+  au_on                    DATE,
+  rej_by                   VARCHAR2(80),
+  rej_on                   DATE,
+  tba_key                  VARCHAR2(80),
+  assreq_cust_flag         VARCHAR2(80),
+  assreq_aadharfront_flag  VARCHAR2(80),
+  assreq_panimg_flag       VARCHAR2(80),
+  assreq_custsign_flag     VARCHAR2(80),
+  assreq_cusmob_flag       VARCHAR2(80),
+  assreq_branchcamera_flag VARCHAR2(80),
+  assreq_custloc_flag      VARCHAR2(80),
+  staff_geo_lat            VARCHAR2(80),
+  staff_geo_long           VARCHAR2(80),
+  cbs_acc_num              VARCHAR2(80),
+  cbs_cust_id              VARCHAR2(80),
+  auth_status              VARCHAR2(80),
+  auth_remarks             VARCHAR2(80),
+  assreq_ekyc_ref_num      VARCHAR2(80),
+  assreq_nominee_status    VARCHAR2(80),
+  assreq_aadharbck_flag    VARCHAR2(80),
+  assreq_cust_sfname       VARCHAR2(80),
+  tr_from                  VARCHAR2(80),
+  tr_on                    DATE
+)
+tablespace SYSTEM
+  pctfree 10
+  pctused 40
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+
+
+alter table ASSREQ_MASTER
+  add primary key (assreq_ref_num);
+
+alter table ASSREQ_MASTER
+  add primary key (ASSREQ_REF_NUM)
+  using index 
+  tablespace SYSTEM
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+
+
+
+
+-- Create table
+create table ASSVAL_UIDDETAILS
+(
+  assval_ref_num  VARCHAR2(80) not null,
+  assval_ekyc_uid VARCHAR2(80),
+  cr_by           VARCHAR2(80),
+  cr_on           DATE,
+  auth_status     VARCHAR2(80),
+  assval_pan      VARCHAR2(80)
+)
+tablespace SYSTEM
+  pctfree 10
+  pctused 40
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+
+
+ 
+create table ASSREQ_QUALIFICATION
+(
+  QUALIF_CODE  VARCHAR2(8) not null,
+  QUALIF_DESCN VARCHAR2(100),
+  QUALIF_STATUS NUMBER(4),
+  CR_BY VARCHAR2(80),
+  CR_ON DATE
+)
+tablespace SYSTEM
+  pctfree 10
+  pctused 40
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+  
+  insert into ASSREQ_QUALIFICATION (QUALIF_CODE, QUALIF_DESCN, QUALIF_STATUS, CR_BY, CR_ON)
+values ('I', 'Illitrate', '1', 'SYSTEM', to_date('14-10-2024 17:00:00', 'dd-mm-yyyy hh24:mi:ss'));
+
+  insert into ASSREQ_QUALIFICATION (QUALIF_CODE, QUALIF_DESCN, QUALIF_STATUS, CR_BY, CR_ON)
+values ('HS', 'High School', '1', 'SYSTEM', to_date('14-10-2024 17:00:00', 'dd-mm-yyyy hh24:mi:ss'));
+
+  insert into ASSREQ_QUALIFICATION (QUALIF_CODE, QUALIF_DESCN, QUALIF_STATUS, CR_BY, CR_ON)
+values ('UG', 'Under Graduate', '1', 'SYSTEM', to_date('14-10-2024 17:00:00', 'dd-mm-yyyy hh24:mi:ss'));
+
+  insert into ASSREQ_QUALIFICATION (QUALIF_CODE, QUALIF_DESCN, QUALIF_STATUS, CR_BY, CR_ON)
+values ('DH', 'Diploma Holder', '1', 'SYSTEM', to_date('14-10-2024 17:00:00', 'dd-mm-yyyy hh24:mi:ss'));
+
+  insert into ASSREQ_QUALIFICATION (QUALIF_CODE, QUALIF_DESCN, QUALIF_STATUS, CR_BY, CR_ON)
+values ('G', 'Graduate', '1', 'SYSTEM', to_date('14-10-2024 17:00:00', 'dd-mm-yyyy hh24:mi:ss'));
+
+
+  insert into ASSREQ_QUALIFICATION (QUALIF_CODE, QUALIF_DESCN, QUALIF_STATUS, CR_BY, CR_ON)
+values ('PG', 'Post Graduate', '1', 'SYSTEM', to_date('14-10-2024 17:00:00', 'dd-mm-yyyy hh24:mi:ss'));
+
+  insert into ASSREQ_QUALIFICATION (QUALIF_CODE, QUALIF_DESCN, QUALIF_STATUS, CR_BY, CR_ON)
+values ('P', 'Professional', '1', 'SYSTEM', to_date('14-10-2024 17:00:00', 'dd-mm-yyyy hh24:mi:ss'));
+
+/*current date */
+
+/**/

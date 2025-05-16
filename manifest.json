@@ -1,0 +1,19 @@
+{
+    "name": "",
+    "short_name": "",
+    "icons": [
+        {
+            "src": "/uat-branch-portal/theme/img/logo-lite.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/uat-branch-portal/?start_url=homeicon",
+    "permissions": [
+        "gcm"
+    ],
+    "orientation": "portrait",
+    "display": "standalone",
+    "theme_color": "#f26222",
+    "background_color": "#f26222"
+}
