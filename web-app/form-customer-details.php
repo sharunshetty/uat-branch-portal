@@ -180,13 +180,16 @@ require( dirname(__FILE__) . '/../theme/app-header.php' );
                       <label class="col-md-12 label_head">Occupation <mand>*</mand></label>
                       <div class="col-md-12">
                         <select name="OCCUPATION" id="OCCUPATION" class="form-control border-input" autocomplete="none">
-                        <option value="">-- Select --</option>
-                        <?php
-                          $sql_exe = $main_app->sql_run("SELECT OCCUPATIONS_CODE, OCCUPATIONS_DESCN FROM OCCUPATIONS ORDER BY OCCUPATIONS_DESCN ASC");
-                          while ($row = $sql_exe->fetch()) {
-                              echo "<option value=".$row['OCCUPATIONS_CODE'].">".$row['OCCUPATIONS_DESCN']."</option>";
-                          }
-                        ?>
+                          <option value="">-- Select --</option>
+                          <option value="1">h</option>
+                          <?php
+
+                            // $sql_exe = $main_app->sql_run("select w.occupations_code,w.occupations_descn from occupations@cbsdblink w where w.occupations_descn  not like '%NTBU%' order by 1");
+                            // while ($row = $sql_exe->fetch() ) {
+                            //   echo "<option value=".$row['OCCUPATIONS_CODE'].">".$row['OCCUPATIONS_DESCN']."</option>";
+                            // }  
+
+                          ?>
                         </select>
                       </div>
                     </div> 

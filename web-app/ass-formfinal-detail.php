@@ -241,8 +241,10 @@ require( dirname(__FILE__) . '/../theme/app-header.php' );
                                                                     <td>
                                                                         <?php
                                                                             if(isset($item_data1['ASSREQ_OCCUPATION_CODE']) && $item_data1['ASSREQ_OCCUPATION_CODE'] != "") {
-                                                                                $occupation = $main_app->sql_fetchcolumn("SELECT OCCUPATIONS_DESCN FROM OCCUPATIONS WHERE OCCUPATIONS_CODE = '".$item_data1['ASSREQ_OCCUPATION_CODE']."'");
-                                                                                echo (isset($occupation) && $occupation != "") ? $occupation : NULL;
+                                                                               // $occupation = $main_app->sql_fetchcolumn("SELECT OCCUPATIONS_DESCN FROM OCCUPATIONS WHERE OCCUPATIONS_CODE = '".$item_data1['ASSREQ_OCCUPATION_CODE']."'");
+                                                                               // echo (isset($occupation) && $occupation != "") ? $occupation : NULL;
+                                                                                echo $item_data1['ASSREQ_OCCUPATION_CODE'];
+                                                                               //echo $main_app->getval_field('occupations@cbsdblink','occupations_descn','occupations_code',$item_data1['ASSREQ_OCCUPATION_CODE']);
                                                                             } 
                                                                         ?>                                                                        
                                                                     </td>
