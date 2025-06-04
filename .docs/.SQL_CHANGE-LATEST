@@ -684,7 +684,7 @@ create table ASSREQ_MASTER
   rej_on                   DATE,
   tba_key                  VARCHAR2(80),
   assreq_cust_flag         VARCHAR2(80),
-  assreq_aadharfront_flag  VARCHAR2(80),
+  assreq_aadharfront_flag  CHAR(1),
   assreq_panimg_flag       VARCHAR2(80),
   assreq_custsign_flag     VARCHAR2(80),
   assreq_cusmob_flag       VARCHAR2(80),
@@ -698,11 +698,11 @@ create table ASSREQ_MASTER
   auth_remarks             VARCHAR2(80),
   assreq_ekyc_ref_num      VARCHAR2(80),
   assreq_nominee_status    VARCHAR2(80),
-  assreq_aadharbck_flag    VARCHAR2(80),
+  assreq_aadharbck_flag    CHAR(1),
+  assreq_aadharimg_flag    VARCHAR2(80),
+  branch_code              VARCHAR2(80),
   assreq_cust_sfname       VARCHAR2(80),
-  tr_from                  VARCHAR2(80),
-  tr_on                    DATE,
-  branch_code              VARCHAR2(80)
+  cust_ip                  VARCHAR2(255)
 )
 tablespace SYSTEM
   pctfree 10
@@ -731,6 +731,25 @@ alter table ASSREQ_MASTER
     minextents 1
     maxextents unlimited
   );
+
+alter table ASSREQ_MASTER
+  add primary key (assreq_ref_num);
+
+alter table ASSREQ_MASTER
+  add primary key (ASSREQ_REF_NUM)
+  using index 
+  tablespace SYSTEM
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+
 
 
 -- Create table
