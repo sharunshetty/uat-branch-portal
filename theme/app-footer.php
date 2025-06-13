@@ -53,8 +53,13 @@ defined('PRODUCT_NAME') OR exit();
         window.req_id = '<?php echo (isset($_SESSION['APP_TOKEN'])) ? $_SESSION['APP_TOKEN'] : ""; ?>';
 
         $(document).ready(function() {
-            // Footer
-
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault(); // Prevent form submit
+                }
+            });
         });
+
+     
 
     </script>

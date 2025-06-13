@@ -79,7 +79,7 @@ if( isset($_POST['id']) && $_POST['id'] != "" ) {
 			<div class="col-md-6 form-group">
 				<div id="MOB_OTPENTRY" style="display:none;">
 					<label class="col-md-12 label_head">Please enter the OTP sent on Mobile</label>	
-					<input type="text" name="MOBVALID_OTP" id="MOBVALID_OTP" placeholder=""  class="form-control border-input" autocomplete="off">				
+					<input type="text" name="MOBVALID_OTP" id="MOBVALID_OTP" placeholder=""  class="form-control border-input" maxlength="6" autocomplete="off">				
 					
 					<span id="MOB_OTPCOUNTER" class="label_head mt-2" style="float: left;"></span>
 					<span id="MOB_RESENDOTP" class="mt-2" style="float: right;"><a href="#" class="label_head" style="text-decoration: underline;" onclick="sendMobOtp();">Resend OTP</a></span>
@@ -103,7 +103,7 @@ if( isset($_POST['id']) && $_POST['id'] != "" ) {
 			<div class="col-md-6 form-group">
 				<div id="MAIL_OTPENTRY" style="display:none;">
 					<label class="col-md-12 label_head">Please enter OTP received on Email</label>	
-					<input type="text" name="MAILVALID_OTP" id="MAILVALID_OTP" placeholder=""  class="form-control border-input" autocomplete="off">	
+					<input type="text" name="MAILVALID_OTP" id="MAILVALID_OTP" placeholder=""  class="form-control border-input" maxlength="6" autocomplete="off">	
 
 					<span id="MAIL_OTPCOUNTER" class="label_head mt-2" style="float: left;"></span>
 					<span id="MAIL_RESENDOTP" class="mt-2" style="float: right;"><a href="#" class="label_head" style="text-decoration: underline;" onclick="sendEmailOtp();">Resend</a></span>

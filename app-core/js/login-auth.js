@@ -127,7 +127,7 @@ $('document').ready(function () {
         var token = $("#app_token").val();
         var formData = new FormData();
         formData.append('cmd','ass_sessionlogs_data');
-       // formData.append('sessflag','1');
+        // formData.append('sessflag','1');
         formData.append('token',token);
         formData.append('user_id',user_id);
         $.ajax({

@@ -162,7 +162,7 @@ if(isset($_POST['emp_usr_id']) && isset($_POST['emp_usr_pass']) && isset($_POST[
                 exit('User is not active'); // Stop
             }
 
-               //Check login count - NEWLY ADDED
+            //Check login count - NEWLY ADDED
             $login_chk_date = date("Y-m-d H:i:s",strtotime(date("Y-m-d H:i:s")." -10 minutes")); // 10min ago time
             $add_data = array('LOGIN_USER' => $username);
             $countLogins = $main_app->sql_fetchcolumn("SELECT count(0) FROM APP_LOGIN_LOGS WHERE USR_ACTIVE_FLAG = '1' AND LOGIN_TIME > '{$login_chk_date}' AND LOGIN_USER = :LOGIN_USER ",$add_data);

@@ -86,7 +86,8 @@ elseif(!isset($_POST['STAFF_GEO_LONG']) || $_POST['STAFF_GEO_LONG'] == NULL || $
     $data1['APP_STATUS'] = "AP";
     $data1['STAFF_GEO_LAT']  = (isset($_POST['STAFF_GEO_LAT']) && $_POST['STAFF_GEO_LAT'] != "") ? base64_decode($_POST['STAFF_GEO_LAT']) : NULL;
     $data1['STAFF_GEO_LONG'] = (isset($_POST['STAFF_GEO_LONG']) && $_POST['STAFF_GEO_LONG'] != "") ? base64_decode($_POST['STAFF_GEO_LONG']) : NULL;
-        
+    $data1['CUST_IP'] = $main_app->current_ip();
+
     $db_output1 = $main_app->sql_update_data("ASSREQ_MASTER", $data1, array('ASSREQ_REF_NUM' => $item_data['ASSREQ_REF_NUM'] )); // Update
     if($db_output1 == false) { $updated_flag = false; }
 

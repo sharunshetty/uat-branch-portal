@@ -564,7 +564,6 @@ else {
             $data = array();
             $data['CBS_ACC_NUM'] = isset($output['acntNumber']) ? $output['acntNumber'] : NULL;
             $data['CBS_CUST_ID'] = $output['userId'];
-            $data['CUST_IP'] = $main_app->current_ip();
 
             // $data2['EMPID_AUTHORISER'] = $_SESSION['USER_ID'];
  	        $data['APP_STATUS'] = "S";

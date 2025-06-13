@@ -482,7 +482,7 @@ require( dirname(__FILE__) . '/../theme/app-header.php' );
 
                             // $sql_exe1 = $main_app->sql_run("select e.memp_num,e.memp_name,br.mbrn_code||'-'||br.mbrn_name  as Branchcode from cbuat.memp e 
                             // join cbuat.users u on u.user_id=e.memp_num join cbuat.mbrn br on br.mbrn_entity_num='1' and br.mbrn_code=u.user_branch_code
-                            // left join cbuat.empsusprel er on er.empsusprel_user_id=e.memp_num where er.empsusprel_user_id is null and  br.mbrn_code= '".$_SESSION['BRANCH_CODE']."' ");
+                            // left join cbuat.empsusprel er on er.empsusprel_user_id=e.memp_num where er.empsusprel_user_id is null and  br.mbrn_code= '".$_SESSION['BRANCH_CODE']."' order by e.memp_num asc ");
                             // while ($row1 = $sql_exe1->fetch() ) {
                             //   echo '<option value="'.$row1['MEMP_NUM'].'">'. $row1['MEMP_NUM'] .' ['. $row1['MEMP_NAME'] . ']</option>';
                             // }
